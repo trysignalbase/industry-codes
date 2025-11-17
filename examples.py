@@ -3,7 +3,7 @@
 import asyncio
 import time
 
-from linkedin_industry_codes import (
+from industry_codes import (
     IndustryMatcher,
     get_closest_categories_batch,
     get_closest_category,

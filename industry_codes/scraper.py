@@ -8,6 +8,7 @@ from typing import Any
 import httpx
 import pandas as pd
 
+
 async def scrape_industry_codes() -> dict[str, Any]:
     """
     Scrape LinkedIn industry codes from Microsoft documentation.

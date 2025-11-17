@@ -3,7 +3,7 @@
 
 import asyncio
 
-from linkedin_industry_codes.scraper import save_to_json, scrape_industry_codes
+from industry_codes.scraper import save_to_json, scrape_industry_codes
 
 
 async def main():

@@ -10,7 +10,7 @@ on:
       - main
     paths:
       - '.github/workflows/scrape.yml'
-      - 'linkedin_industry_codes/**'
+      - 'industry_codes/**'
 
 jobs:
   scrape:
