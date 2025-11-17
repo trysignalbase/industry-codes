@@ -23,7 +23,7 @@ async def test_get_closest_categories_batch():
     """Test the batch convenience function."""
     queries = ["software", "restaurant", "healthcare"]
     results_list = await get_closest_categories_batch(queries, top_n=1)
-    
+
     assert len(results_list) == len(queries)
     for results in results_list:
         assert len(results) == 1
@@ -48,7 +48,7 @@ async def test_find_closest():
     """Test async find_closest method."""
     matcher = await IndustryMatcher.create()
     results = await matcher.find_closest("technology", top_n=3)
-    
+
     assert len(results) <= 3
     assert all("similarity_score" in r for r in results)
     assert results[0]["similarity_score"] >= results[-1]["similarity_score"]
@@ -60,7 +60,7 @@ async def test_find_closest_batch():
     matcher = await IndustryMatcher.create()
     queries = ["tech", "food", "finance"]
     results_list = await matcher.find_closest_batch(queries, top_n=2)
-    
+
     assert len(results_list) == len(queries)
     for results in results_list:
         assert len(results) <= 2
@@ -70,7 +70,7 @@ def test_get_all_categories():
     """Test get_all_categories method."""
     matcher = IndustryMatcher()
     categories = matcher.get_all_categories()
-    
+
     assert isinstance(categories, list)
     assert len(categories) > 0
     assert all(isinstance(c, str) for c in categories)
@@ -80,7 +80,7 @@ def test_find_by_category():
     """Test find_by_category method."""
     matcher = IndustryMatcher()
     categories = matcher.get_all_categories()
-    
+
     if categories:
         results = matcher.find_by_category(categories[0])
         assert isinstance(results, list)
@@ -91,7 +91,7 @@ async def test_similarity_score_range():
     """Test that similarity scores are in valid range."""
     matcher = await IndustryMatcher.create()
     results = await matcher.find_closest("test query", top_n=5)
-    
+
     for result in results:
         score = result["similarity_score"]
         assert 0 <= score <= 1, f"Similarity score {score} out of range"
@@ -101,9 +101,9 @@ async def test_similarity_score_range():
 async def test_search_fields():
     """Test different search field options."""
     matcher = await IndustryMatcher.create()
-    
+
     query = "software"
-    
+
     # Test each search field
     for field in ["label", "hierarchy", "both"]:
         results = await matcher.find_closest(query, top_n=1, search_field=field)
@@ -113,4 +113,3 @@ async def test_search_fields():
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
-
