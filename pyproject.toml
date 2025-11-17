@@ -1,7 +1,7 @@
 [project]
-name = "linkedin-industry-codes"
+name = "industry-codes"
 version = "0.1.0"
-description = "LinkedIn Industry Codes scraper and similarity matcher"
+description = "Industry Codes scraper and similarity matcher"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

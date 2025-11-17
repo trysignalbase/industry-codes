@@ -1,4 +1,4 @@
-"""Example usage scripts for linkedin-industry-codes (async version)."""
+"""Example usage scripts for industry-codes (async version)."""
 
 import asyncio
 import time
@@ -156,7 +156,7 @@ async def example_parallel_searches():
 async def main():
     """Run all examples."""
     print("=" * 60)
-    print("LinkedIn Industry Codes - Async Examples")
+    print("Industry Codes - Async Examples")
     print("=" * 60)
 
     await example_simple_search()

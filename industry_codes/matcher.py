@@ -5,9 +5,14 @@ from typing import Any
 import httpx
 from Levenshtein import distance as levenshtein_distance
 
+# CDN URL for industry codes data
+INDUSTRY_CODES_CDN_URL = (
+    "https://cdn.jsdelivr.net/gh/trysignalbase/industry-codes@main/industry_codes.json"
+)
+
 
 class IndustryMatcher:
-    """Matcher for finding closest LinkedIn industry categories."""
+    """Matcher for finding closestindustry categories."""
 
     def __init__(self, industries_data: list[dict[str, Any]]):
         """
@@ -44,7 +49,7 @@ class IndustryMatcher:
     @staticmethod
     async def _download_from_github() -> list[dict[str, Any]]:
         """
-        Download industry data from GitHub CDN.
+        Download industry data from GitHub CDN (jsDelivr).
 
         Returns:
             List of industry dictionaries.
@@ -54,15 +59,13 @@ class IndustryMatcher:
         """
         try:
             async with httpx.AsyncClient(timeout=10.0) as client:
-                response = await client.get(
-                    "https://raw.githubusercontent.com/trysignalbase/industry-codes/main/industry_codes.json"
-                )
+                response = await client.get(INDUSTRY_CODES_CDN_URL)
                 response.raise_for_status()
                 data = response.json()
                 return data.get("industries", [])
         except Exception as e:
             raise RuntimeError(
-                f"Failed to download industry codes from GitHub: {e}. "
+                f"Failed to download industry codes from CDN: {e}. "
                 "Please check your internet connection or provide industries_data directly."
             ) from e
 
@@ -153,7 +156,7 @@ async def get_closest_category(
     industries_data: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     """
-    Find the closest matching LinkedIn industry category.
+    Find the closest matchingindustry category.
 
     This is a convenience function that creates a matcher and returns results.
     For multiple queries, create an IndustryMatcher instance and reuse it.

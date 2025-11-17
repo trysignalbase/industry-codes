@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Main script for scraping LinkedIn industry codes."""
+"""Main script for scrapingindustry codes."""
 
 import asyncio
 
@@ -8,7 +8,7 @@ from industry_codes.scraper import save_to_json, scrape_industry_codes
 
 async def main():
     """Main entry point for scraping industry codes."""
-    print("🔍 Scraping LinkedIn Industry Codes...")
+    print("🔍 ScrapingIndustry Codes...")
     print("=" * 60)
 
     try:

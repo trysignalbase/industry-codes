@@ -1,4 +1,4 @@
-"""Scraper for LinkedIn Industry Codes from Microsoft documentation."""
+"""Scraper forIndustry Codes from Microsoft documentation."""
 
 import asyncio
 import json
@@ -11,7 +11,7 @@ import pandas as pd
 
 async def scrape_industry_codes() -> dict[str, Any]:
     """
-    Scrape LinkedIn industry codes from Microsoft documentation.
+    Scrapeindustry codes from Microsoft documentation.
 
     Returns:
         Dictionary containing industry codes data with metadata.
@@ -89,7 +89,7 @@ async def save_to_json(
 
 async def main_async():
     """Async main function for scraping."""
-    print("Scraping LinkedIn industry codes...")
+    print("Scrapingindustry codes...")
     data = await scrape_industry_codes()
     print(f"Found {data['total_industries']} industries")
 
