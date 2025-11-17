@@ -1,1 +1,1 @@
-"""Tests package for linkedin_industry_codes."""
+"""Tests package for industry_codes."""

@@ -1,7 +1,7 @@
-"""Pytest fixtures for linkedin_industry_codes tests."""
+"""Pytest fixtures for industry_codes tests."""
 
 import pytest
-from linkedin_industry_codes.scraper import scrape_industry_codes
+from industry_codes.scraper import scrape_industry_codes
 
 
 @pytest.fixture(scope="module")
