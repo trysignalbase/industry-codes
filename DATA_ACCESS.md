@@ -1,4 +1,4 @@
-# LinkedIn Industry Codes - Data Access
+#Industry Codes - Data Access
 
 Your scraped industry codes JSON is automatically available via REST GET requests!
 

@@ -1,4 +1,4 @@
-"""LinkedIn Industry Codes library - async-first implementation."""
+"""Industry Codes library - async-first implementation."""
 
 from .matcher import IndustryMatcher, get_closest_category
 from .scraper import scrape_industry_codes
