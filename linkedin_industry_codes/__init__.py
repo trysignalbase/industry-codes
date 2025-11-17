@@ -14,4 +14,3 @@ __all__ = [
     "IndustryMatcher",
     "scrape_industry_codes",
 ]
-
